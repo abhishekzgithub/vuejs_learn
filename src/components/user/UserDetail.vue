@@ -4,6 +4,7 @@
         <p>Many Details</p>
         <p>User name is {{switchName()}}</p>
         <button @click="resetName">Reset Name</button>
+        <button @click="resetFn()">Reset Prop Name</button>
     </div>
 </template>
 
@@ -12,7 +13,9 @@ export default{
     props:{
         myName:{
             type: String,
-        }
+        },
+        resetFn:Function //this prop is coming from the parent User.vue and will change both the child and 
+                            //parent value. this prop is setting the value on both levels.
     }
     ,methods:{
         switchName(){
