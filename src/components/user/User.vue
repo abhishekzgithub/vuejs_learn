@@ -4,6 +4,7 @@
         <p>I'm an awesome User!</p>
         <button @click="changeName">Change my Name</button>
         <p>The name is {{name}}</p>
+        <p>The age is {{age}}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
@@ -11,10 +12,14 @@
                 :myName="name" 
                 @nameWasReset="name=$event"
                 :resetFn="resetName"
+                :userAge="age"
                 ></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit 
+                :userAge="age"
+                @ageWasEdited="age=$event"
+                ></app-user-edit>
             </div>
         </div>
     </div>
@@ -39,7 +44,8 @@
         }
         ,data: function(){
             return {
-                name:"Max"
+                name:"Max",
+                age:27
             };
 
         }
